@@ -1,0 +1,18 @@
+name: release
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  telegram_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send changelog to telegram channel
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -F chat_id=${{ secrets.WEB_GROUP }} -F text='
+           Ты бэкендер Гарри! Репозиториус обновлятус.
+           Версия: ${{ github.event.release.name }}
+           Что было добавлено/изменено:
+           ${{ github.event.release.body }}
+           Берегите себя, кашку кушайте.
+          '
