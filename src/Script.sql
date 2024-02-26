@@ -206,7 +206,3 @@ group by brand_origin;
 select count(*) as persons_from_usa_count
 from car_shop.customer 
 where customer.phone_number like '+1%';
-
-
-
-
