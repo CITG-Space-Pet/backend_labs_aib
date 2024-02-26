@@ -210,10 +210,3 @@ where customer.phone_number like '+1%';
 
 
 
-
-
-
-
-
-
-
